@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Numans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --cream: #f5f0e8;
+  --cream-dark: #ede7d9;
+  --forest: #1a3d2b;
+  --forest-mid: #2d5a3f;
+  --forest-light: #4a7a5a;
+  --gold: #b8963c;
+  --gold-light: #d4af5a;
+  --gold-pale: #e8d5a0;
+  --sage: #7a9a6a;
+  --sage-light: #a0b890;
+  --ivory: #fffef8;
+  --dark-bg: #0d2419;
+  --dark-mid: #152e1e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ── Scroll reveal animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delay helpers */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+
+/* ── Islamic geometric background ── */
+.geo-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%232d5a3f' stroke-width='0.8'%3E%3Cpolygon points='40,4 52,14 56,28 48,40 56,52 52,66 40,76 28,66 24,52 32,40 24,28 28,14'/%3E%3Cpolygon points='40,12 49,19 52,30 46,40 52,50 49,61 40,68 31,61 28,50 34,40 28,30 31,19'/%3E%3Cline x1='40' y1='4' x2='40' y2='12'/%3E%3Cline x1='52' y1='14' x2='49' y2='19'/%3E%3Cline x1='56' y1='28' x2='52' y2='30'/%3E%3Cline x1='48' y1='40' x2='46' y2='40'/%3E%3Cline x1='56' y1='52' x2='52' y2='50'/%3E%3Cline x1='52' y1='66' x2='49' y2='61'/%3E%3Cline x1='40' y1='76' x2='40' y2='68'/%3E%3Cline x1='28' y1='66' x2='31' y2='61'/%3E%3Cline x1='24' y1='52' x2='28' y2='50'/%3E%3Cline x1='32' y1='40' x2='34' y2='40'/%3E%3Cline x1='24' y1='28' x2='28' y2='30'/%3E%3Cline x1='28' y1='14' x2='31' y2='19'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+.geo-bg-dark {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23a0c87a' stroke-width='0.8'%3E%3Cpolygon points='40,4 52,14 56,28 48,40 56,52 52,66 40,76 28,66 24,52 32,40 24,28 28,14'/%3E%3Cpolygon points='40,12 49,19 52,30 46,40 52,50 49,61 40,68 31,61 28,50 34,40 28,30 31,19'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* ── Font families ── */
+.font-arabic {
+  font-family: 'Amiri', serif;
+}
+
+/* Montserrat Alternates — display headings, names */
+.font-display {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+/* Numans — body / invitation text */
+.font-body {
+  font-family: 'Numans', sans-serif;
+}
+
+/* Poppins — UI labels, small caps, buttons */
+.font-text {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Decorative gold line ── */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  opacity: 0.5;
+}
+
+/* ── Islamic star ornament ── */
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.star-spin {
+  animation: rotate-slow 30s linear infinite;
+  transform-origin: center;
+}
+
+/* ── Parallax hero ── */
+.parallax-bg {
+  will-change: transform;
+}
+
+/* ── Card hover ── */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(26, 61, 43, 0.15);
+}
+
+/* ── Section divider ── */
+.section-divider {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+}
+
+/* ── Input styles ── */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(160, 200, 122, 0.25);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(184, 150, 60, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(184, 150, 60, 0.08);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 2px;
+  opacity: 0.5;
+}
