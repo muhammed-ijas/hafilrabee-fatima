@@ -528,7 +528,7 @@ const Details = () => {
                 fontFamily: "'Questrial', sans-serif", fontWeight: 400,
                 color: "#2d5a3f", fontSize: "13px", lineHeight: 1.9, letterSpacing: "0.05em",
               }}>
-                K. Rasheed Faisi &amp; Rahmath
+                Abdul Rasheed Faizi &amp; Rahmath
               </p>
               <p style={{
                 fontFamily: "'Questrial', sans-serif", fontWeight: 400,
